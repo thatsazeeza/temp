@@ -1,5 +1,6 @@
 package org.example.temporary_task.book;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,7 +39,9 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
+
 
     @CreatedDate
     private LocalDateTime createdAt;
